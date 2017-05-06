@@ -1,4 +1,5 @@
 import { StaticSemigroup, getProductStaticSemigroup, getDualStaticSemigroup, fold as foldSemigroup } from './Semigroup'
+import { Endomorphism, identity, compose } from './function'
 
 export interface StaticMonoid<A> extends StaticSemigroup<A> {
   empty(): A
@@ -53,4 +54,11 @@ export const monoidProduct: StaticMonoid<number> = {
 export const monoidString: StaticMonoid<string> = {
   empty: () => '',
   concat: (x, y) => x + y
+}
+
+export function getEndomorphismStaticMonoid<A>(): StaticMonoid<Endomorphism<A>> {
+  return {
+    empty: () => identity,
+    concat: (x, y) => compose(x, y)
+  }
 }
