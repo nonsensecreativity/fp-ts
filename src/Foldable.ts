@@ -1,5 +1,4 @@
 import { HKT, HKTS } from './HKT'
-import { Endomorphism } from './function'
 import { StaticMonoid, monoidArray, getEndomorphismStaticMonoid } from './Monoid'
 
 export interface StaticFoldable<F extends HKTS> {
